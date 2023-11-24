@@ -5,8 +5,8 @@ import './App.css'
 
  function App() {
   const [comic, setComic] = useState('');
-  const [comicNum, setNum] = useState(0);
   const [comicTitle, setTitle] = useState('');
+  //const [data, setData] = useState({});
 
   //UseEffect for Fetch
   useEffect(() => {
@@ -19,9 +19,8 @@ import './App.css'
       safe_title, transcript, alt, img, title, day} = newData;
 
     
-
       setComic(img);
-      setNum(num);
+      //setNum(num);
       setTitle(title);
 
     }
@@ -31,9 +30,14 @@ import './App.css'
   },[]);
 
   return (
-    <div id="comic-box">
-      <h1>{comicTitle}</h1>
+    <div id="App">
+      <div id="header">
+        <h1>{comicTitle}</h1>
+      </div>
+      <div id="comic-box">
       <img src={comic} id="picture"></img>
+      </div>
+      
     </div>
   )
 }

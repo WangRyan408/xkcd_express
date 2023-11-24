@@ -5,11 +5,29 @@
   text-align: center;
 }
 
-#comic-box {
+#App {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
 
-#comic-box > img {
+
+
+#header {
+  max-width: 300px;
+  max-height: 300px;
+  display: flex;
+  align-content: center;
+  text-align: center;
+}
+
+#comic-box {
   max-height: 600px;
   max-width: 600px;
+  display: flex;
+  align-content: center;
+  text-align: center;
+  align-content: center;
 }

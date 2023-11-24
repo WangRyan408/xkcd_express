@@ -40,11 +40,6 @@ app.get('/api/comic', async function(req, res, next){
     const fetchData = await fetch('https://xkcd.com/info.0.json');
     const response = await fetchData.json();
 
-    //req.num = response.num;
-
-   // const latestComic = await fetch('http://localhost:3001/api');
-    //const comicRes = await latestComic.json();
-    
     req.test = response.num;
 
     const comicNumber = rng(req.test);
@@ -52,9 +47,6 @@ app.get('/api/comic', async function(req, res, next){
     const fetchedComic = await fetch(`https://xkcd.com/${comicNumber}/info.0.json`);
     const fetchRes = await fetchedComic.json();
     
-
-    //console.log(comicRes.latest);
-
     res.json(fetchRes);
 
 });
