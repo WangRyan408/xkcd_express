@@ -46,7 +46,7 @@ function rng(latest) {
     return Math.floor(Math.random() * latest);
 }
 
-const listener = app.listen(process.env.PORT || 3001, () => {
+const listener = app.listen(process.env.PORT || 3000, () => {
     console.log('Your app is listening on port ' + listener.address().port)
   })
 
