@@ -32,6 +32,7 @@ import './App.css'
   return (
     <div id="App">
       <div id="header">
+        <p>Hi Mom!</p>
         <h1>{comicTitle}</h1>
       </div>
       <div id="comic-box">
