@@ -1,9 +1,11 @@
 import express from "express";
+import serverless from "serverless-http";
 import cors from "cors";
 import * as url from 'url';
 //import fetch from "node-fetch";
 
 const app = express();
+
 
 //Enable CORS
 app.use(cors());
@@ -22,18 +24,6 @@ app.use(express.static('../client/src'));
 app.get('/', function(req, res, next){
     res.sendFile(__dirname + '../client/index.html');
 })
-
-
-app.get('/api', async function(req, res, next) {
-
-const fetchData = await fetch('https://xkcd.com/info.0.json');
-const response = await fetchData.json();
-
-req.num = response.num;
-
-res.json({'latest': req.num});
-
-});
 
 app.get('/api/comic', async function(req, res, next){
 
@@ -59,3 +49,7 @@ function rng(latest) {
 const listener = app.listen(process.env.PORT || 3001, () => {
     console.log('Your app is listening on port ' + listener.address().port)
   })
+
+
+
+  export const handler = serverless(app);
