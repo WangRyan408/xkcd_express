@@ -7,4 +7,7 @@ export default defineConfig({
   server: {
     cors: {origin: "*"}
   },
+  build: {
+    target: modules
+  }
 })
