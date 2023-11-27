@@ -16,9 +16,9 @@ api.use(cors());
 //const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 //Add Static Files
-router.use(express.static('../client'));
-router.use(express.static('../client/public'));
-router.use(express.static('../client/src'));
+//router.use(express.static('../client'));
+router.use(express.static('../public'));
+router.use(express.static('../src'));
 
 
 router.get('/api/comic', async function(req, res, next){
