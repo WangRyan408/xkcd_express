@@ -12,19 +12,14 @@ const router = Router();
 api.use(cors());
 
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+//const __filename = url.fileURLToPath(import.meta.url);
+//const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 //Add Static Files
 router.use(express.static('../client'));
 router.use(express.static('../client/public'));
 router.use(express.static('../client/src'));
 
-
-
-router.get('/', function(req, res, next){
-    res.sendFile(__dirname + '../client/index.html');
-})
 
 router.get('/api/comic', async function(req, res, next){
 
