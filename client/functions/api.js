@@ -47,7 +47,7 @@ function rng(latest) {
     return Math.floor(Math.random() * latest);
 }
 
-api.use("/api/", router);
+api.use("/.netlify/functions/api", router);
 
 
   export const handler = serverless(api);
