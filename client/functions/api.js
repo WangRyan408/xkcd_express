@@ -4,28 +4,29 @@ import cors from "cors";
 import * as url from 'url';
 //import fetch from "node-fetch";
 
-const app = express();
+const api = express();
 
+const router = Router();
 
 //Enable CORS
-app.use(cors());
+api.use(cors());
 
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 //Add Static Files
-app.use(express.static('../client'));
-app.use(express.static('../client/public'));
-app.use(express.static('../client/src'));
+router.use(express.static('../client'));
+router.use(express.static('../client/public'));
+router.use(express.static('../client/src'));
 
 
 
-app.get('/', function(req, res, next){
+router.get('/', function(req, res, next){
     res.sendFile(__dirname + '../client/index.html');
 })
 
-app.get('/api/comic', async function(req, res, next){
+router.get('/api/comic', async function(req, res, next){
 
     const fetchData = await fetch('https://xkcd.com/info.0.json');
     const response = await fetchData.json();
@@ -46,10 +47,7 @@ function rng(latest) {
     return Math.floor(Math.random() * latest);
 }
 
-const listener = app.listen(process.env.PORT || 3000, () => {
-    console.log('Your app is listening on port ' + listener.address().port)
-  })
+api.use("/api/", router);
 
 
-
-  export const handler = serverless(app);
+  export const handler = serverless(api);

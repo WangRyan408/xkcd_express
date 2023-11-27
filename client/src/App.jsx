@@ -12,7 +12,7 @@ import './App.css'
   useEffect(() => {
    
     const fetchData = async () => {
-      const response = await fetch('/functions/api/comic');
+      const response = await fetch('https://spectacular-travesseiro-9c15b0.netlify.app/api/comic');
       const newData = await response.json();
 
       const {month, num, link, year, news,
