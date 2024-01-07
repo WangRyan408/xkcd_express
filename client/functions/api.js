@@ -21,7 +21,7 @@ router.use(express.static('../client/public'));
 router.use(express.static('../client/src'));
 
 
-router.get('/api/comic', async function(req, res, next){
+router.get('/comic', async function(req, res, next){
 
     const fetchData = await fetch('https://xkcd.com/info.0.json');
     const response = await fetchData.json();
@@ -42,7 +42,7 @@ function rng(latest) {
     return Math.floor(Math.random() * latest);
 }
 
-api.use("/.netlify/functions/api/", router);
+api.use("/api/", router);
 
 
-  export const handler = serverless(api);
+export const handler = serverless(api);
