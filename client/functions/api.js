@@ -21,6 +21,13 @@ router.use(express.static('../client/public'));
 router.use(express.static('../client/src'));
 
 
+router.get('/', async function(req, res, next){
+
+    res.send({"Hello": "World"});
+
+});
+
+
 router.get('/comic', async function(req, res, next){
 
     const fetchData = await fetch('https://xkcd.com/info.0.json');
